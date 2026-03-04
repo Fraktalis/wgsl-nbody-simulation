@@ -1,0 +1,14 @@
+{
+  "name": "nbody-simulations",
+  "version": "1.0.0",
+  "description": "N-Body simulation: CPU (JavaScript) vs GPU (WebGPU)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0"
+  }
+}
