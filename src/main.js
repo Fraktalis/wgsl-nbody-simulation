@@ -9,7 +9,7 @@ if (!navigator.gpu) {
 const jsCanvas  = document.getElementById('canvas-js');
 const gpuCanvas = document.getElementById('canvas-gpu');
 
-const simJS  = new NBodyJS(jsCanvas, 500);
+const simJS  = new NBodyJS(jsCanvas, 0);
 const simGPU = new NBodyGPU(gpuCanvas);
 
 // Contrôle : nombre de particules JS
