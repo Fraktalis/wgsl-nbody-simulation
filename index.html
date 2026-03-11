@@ -127,7 +127,7 @@
   <!-- Panneau JS -->
   <div class="panel">
     <div class="label"><span class="badge badge-js">JS</span> CPU — naïf O(n²)</div>
-    <canvas id="canvas-js" width="400" height="400"></canvas>
+    <canvas id="canvas-js" width="600" height="600"></canvas>
     <div class="stats" id="stats-js">
       Particules : <span id="js-count">—</span><br>
       FPS : <span id="js-fps">—</span><br>
@@ -138,7 +138,7 @@
   <!-- Panneau WebGPU -->
   <div class="panel">
     <div class="label"><span class="badge badge-gpu">WebGPU</span> GPU — parallèle</div>
-    <canvas id="canvas-gpu" width="400" height="400"></canvas>
+    <canvas id="canvas-gpu" width="600" height="600"></canvas>
     <div class="stats" id="stats-gpu">
       Particules : <span id="gpu-count">—</span><br>
       FPS : <span id="gpu-fps">—</span><br>
@@ -152,15 +152,15 @@
 <div class="controls">
   <div class="control-group">
     <label>Particules JS : <strong id="lbl-js-n">500</strong></label>
-    <input type="range" id="js-n" min="100" max="2000" step="100" value="500">
+    <input type="range" id="js-n" min="0" max="10000" step="100" value="0">
   </div>
   <div class="control-group">
     <label>Particules GPU : <strong id="lbl-gpu-n">10000</strong></label>
-    <input type="range" id="gpu-n" min="1000" max="100000" step="1000" value="10000">
+    <input type="range" id="gpu-n" min="0" max="100000" step="1000" value="0">
   </div>
   <div class="control-group">
     <label>Gravité : <strong id="lbl-gravity">0.10</strong></label>
-    <input type="range" id="gravity" min="0.01" max="0.5" step="0.01" value="0.10">
+    <input type="range" id="gravity" min="0.01" max="0.5" step="0.01" value="0.05">
   </div>
   <div class="control-group">
     <label>Softening ε : <strong id="lbl-eps">20</strong></label>
