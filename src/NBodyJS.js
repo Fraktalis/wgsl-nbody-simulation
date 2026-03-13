@@ -47,10 +47,11 @@ export class NBodyJS {
         const dy = positions[j * 2 + 1] - yi;
 
         const distSquared = dx * dx + dy * dy + softeningSquared;
-        const forceFactor = gravity / (distSquared * Math.sqrt(distSquared));
+        const forceFactor = gravity / distSquared;
+        const normalizedForceFactor =  forceFactor / Math.sqrt(distSquared);
 
-        accelX += dx * forceFactor;
-        accelY += dy * forceFactor;
+        accelX += dx * normalizedForceFactor;
+        accelY += dy * normalizedForceFactor;
       }
 
       velocities[i * 2]     += accelX;

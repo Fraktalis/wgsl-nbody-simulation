@@ -34,9 +34,10 @@ fn main(@builtin(global_invocation_id) globalId : vec3<u32>) {
     let neighbor     = currentParticles[j];
     let toNeighbor   = neighbor.position - currentParticle.position;
     let distSquared  = dot(toNeighbor, toNeighbor) + params.softeningSquared;
-    let forceFactor  = params.gravity / (distSquared * sqrt(distSquared));
+    let forceFactor  = params.gravity / distSquared;
+    let normalizedForceFactor = forceFactor /  sqrt(distSquared);
 
-    acceleration += toNeighbor * forceFactor;
+    acceleration += toNeighbor * normalizedForceFactor;
   }
 
   // Intégration Euler
