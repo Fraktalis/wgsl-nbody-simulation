@@ -34,15 +34,10 @@ export class NBodyJS {
 
     // Calcul des accélérations (loi de gravitation universelle)
     for (let i = 0; i < particleCount; i++) {
-      let accelX = 0;
-      let accelY = 0;
-
       const xi = positions[i * 2];
       const yi = positions[i * 2 + 1];
 
-      for (let j = 0; j < particleCount; j++) {
-        if (i === j) continue;
-
+      for (let j = i + 1; j < particleCount; j++) {
         const dx = positions[j * 2]     - xi;
         const dy = positions[j * 2 + 1] - yi;
 
@@ -50,12 +45,13 @@ export class NBodyJS {
         const forceFactor = gravity / distSquared;
         const normalizedForceFactor =  forceFactor / Math.sqrt(distSquared);
 
-        accelX += dx * normalizedForceFactor;
-        accelY += dy * normalizedForceFactor;
+        let accelX = dx * normalizedForceFactor;
+        let accelY = dy * normalizedForceFactor;
+        velocities[i * 2]     += accelX;
+        velocities[i * 2 + 1] += accelY;
+        velocities[j * 2]     -= accelX;
+        velocities[j * 2 + 1] -= accelY;
       }
-
-      velocities[i * 2]     += accelX;
-      velocities[i * 2 + 1] += accelY;
     }
 
     // Intégration des positions
